@@ -1,0 +1,7 @@
+# Gespeicherte Gemini-Seite (enthält private Kontodaten)
+cod/
+
+# Originalfotos (die Website nutzt die optimierten Versionen in images/)
+/Gemini_Generated_Image_*.jpeg
+images/Gemini_Generated_Image_*.jpeg
+images/1.jpeg

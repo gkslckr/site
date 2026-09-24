@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Umzug & Transport | Premium Umzugsunternehmen</title>
+    
+    <!-- Google Fonts: Playfair Display for elegant headings, Montserrat for clean body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0a192f',
+                            800: '#112240',
+                            700: '#233554',
+                        },
+                        gold: {
+                            500: '#d4af37',
+                            400: '#e5c158',
+                            600: '#aa8c2c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            background-color: #0a192f;
+            color: #e2e8f0;
+        }
+
+        /* Hero Image Zoom Animation */
+        .hero-bg {
+            animation: zoomEffect 20s infinite alternate linear;
+        }
+        @keyframes zoomEffect {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        /* Glassmorphism Styling */
+        .glass-panel {
+            background: rgba(17, 34, 64, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Input Styling within Glass */
+        .glass-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .glass-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Checkbox styling */
+        .glass-checkbox {
+            accent-color: #d4af37;
+            width: 1.2rem;
+            height: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Date input placeholder fix for WebKit */
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        /* Fade-in Animation for Scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a192f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #aa8c2c;
+        }
+        
+        /* Internal scrollbar for form */
+        .form-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .form-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+        .form-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.5);
+            border-radius: 4px;
+        }
+        /* Bewertungen: endlos laufendes Band */
+        .review-marquee {
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+        }
+        .review-track {
+            display: flex;
+            width: max-content;
+            animation: reviewScroll 70s linear infinite;
+        }
+        .review-marquee:hover .review-track {
+            animation-play-state: paused;
+        }
+        .review-group {
+            display: flex;
+            gap: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .review-card {
+            width: 340px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 640px) {
+            .review-card { width: 280px; }
+            .review-track { animation-duration: 55s; }
+        }
+        @keyframes reviewScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .review-marquee { overflow-x: auto; }
+            .review-track { animation: none; }
+        }
+        .service-card:focus-visible {
+            outline: 2px solid #d4af37;
+            outline-offset: 4px;
+        }
+        .service-detail[hidden] {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans selection:bg-gold-500 selection:text-navy-900">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#startseite" class="text-2xl font-serif font-bold text-white tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-truck-fast text-gold-500"></i>
+                        MK <span class="text-gold-500 font-light text-xl">UMZUG</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="#startseite" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Startseite</a>
+                    <a href="#leistungen" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Leistungen</a>
+                    <a href="#ablauf" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Ablauf</a>
+                    <a href="#ueber-uns" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Über uns</a>
+                    <a href="#kontakt" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Kontakt</a>
+                    
+                    <!-- Call Button in Navbar -->
+                    <a href="tel:01746599377" class="ml-4 px-5 py-2 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900 rounded-full transition-all duration-300 text-sm font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i> 0174 659 93 77
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gold-500 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-900/95 backdrop-blur-md absolute w-full top-full border-t border-navy-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#startseite" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Startseite</a>
+                <a href="#leistungen" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Leistungen</a>
+                <a href="#ablauf" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Ablauf</a>
+                <a href="#ueber-uns" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Über uns</a>
+                <a href="#kontakt" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="startseite" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 lg:pt-20 lg:pb-0">
+        <!-- Background Image with Zoom Effect -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero-umzug.jpg" 
+                 alt="MK Umzug & Transport Umzugswagen beim Beladen" 
+                 class="w-full h-full object-cover hero-bg origin-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-navy-900/50"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Hero Text -->
+                <div class="text-left fade-in-section">
+                    <span class="text-gold-500 font-medium tracking-[0.3em] uppercase text-sm mb-4 block">MK Umzug & Transport</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6">
+                        Ein perfekter Start in Ihr <br>
+                        <span class="italic text-gold-500">neues Zuhause</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg mb-8 max-w-lg font-light leading-relaxed">
+                        Wir transportieren Ihre wertvollen Möbel und Erinnerungen nicht nur von A nach B, sondern sicher in die Zukunft. Erleben Sie unseren Premium-Service in Rheinfelden und europaweit.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#leistungen" class="px-8 py-3 bg-gold-500 text-navy-900 hover:bg-gold-400 font-semibold rounded shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all">Leistungen ansehen</a>
+                        <a href="#ablauf" class="px-8 py-3 border border-gray-400 text-white hover:border-gold-500 hover:text-gold-500 font-medium rounded transition-all">Unser Ablauf</a>
+                    </div>
+                </div>
+
+                <!-- Multi-Step Glassmorphism Form -->
+                <div class="fade-in-section lg:pl-12" style="transition-delay: 0.2s;">
+                    <div class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden flex flex-col min-h-[480px]">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent"></div>
+                        
+                        <h3 class="text-2xl font-serif text-white mb-1">Preisanfrage</h3>
+                        <p id="step-indicator" class="text-gold-500 text-xs font-medium mb-6 uppercase tracking-wider">Schritt 1 von 6: Routenplanung</p>
+                        
+                        <div class="flex-grow overflow-y-auto pr-2 form-scrollbar">
+                            <!-- Step 1: Route -->
+                            <div id="step-1" class="form-step block space-y-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Abholadresse (Stadt/PLZ)</label>
+                                    <input type="text" id="route-from" placeholder="z.B. Rheinfelden" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Zieladresse (Stadt/PLZ)</label>
+                                    <input type="text" id="route-to" placeholder="z.B. München" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                </div>
+                                <button type="button" onclick="calculateDistance()" class="w-full py-2 mt-2 bg-navy-800 border border-gold-500/50 hover:border-gold-500 text-gold-500 text-sm font-medium rounded transition-all">
+                                    <i class="fa-solid fa-map-location-dot mr-2"></i> Entfernung berechnen
+                                </button>
+                                <div id="distance-display" class="text-center text-white text-sm mt-2 font-medium bg-white/5 py-2 rounded hidden">
+                                    <!-- Distance will appear here -->
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Abholort -->
+                            <div id="step-2" class="form-step hidden space-y-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Etage am Abholort</label>
+                                    <input type="number" id="pickup-floor" placeholder="z.B. 2 (0 für EG)" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Aufzug am Abholort?</label>
+                                    <select id="pickup-elevator" class="w-full px-4 py-3 rounded-lg glass-input text-sm appearance-none cursor-pointer">
+                                        <option value="Ja" class="text-black">Ja, vorhanden</option>
+                                        <option value="Nein" class="text-black">Nein, kein Aufzug</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Zielort -->
+                            <div id="step-3" class="form-step hidden space-y-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Etage am Zielort</label>
+                                    <input type="number" id="dropoff-floor" placeholder="z.B. 4 (0 für EG)" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Aufzug am Zielort?</label>
+                                    <select id="dropoff-elevator" class="w-full px-4 py-3 rounded-lg glass-input text-sm appearance-none cursor-pointer">
+                                        <option value="Ja" class="text-black">Ja, vorhanden</option>
+                                        <option value="Nein" class="text-black">Nein, kein Aufzug</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Wohnungsdaten -->
+                            <div id="step-4" class="form-step hidden space-y-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Größe der Wohnung/Haus (m²)</label>
+                                    <input type="number" id="home-size" placeholder="z.B. 85" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Anzahl der Zimmer</label>
+                                    <input type="number" id="room-count" placeholder="z.B. 3" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Termin & Extras -->
+                            <div id="step-5" class="form-step hidden space-y-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1 ml-1 uppercase tracking-wider">Gewünschter Umzugstermin</label>
+                                    <input type="date" id="move-date" class="w-full px-4 py-3 rounded-lg glass-input text-sm text-gray-300">
+                                </div>
+                                <div class="mt-4">
+                                    <label class="block text-xs text-gray-400 mb-2 ml-1 uppercase tracking-wider">Zusätzliche Leistungen</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center text-sm text-white cursor-pointer group">
+                                            <input type="checkbox" id="extra-abbau" class="glass-checkbox mr-3"> Möbelabbau
+                                        </label>
+                                        <label class="flex items-center text-sm text-white cursor-pointer group">
+                                            <input type="checkbox" id="extra-aufbau" class="glass-checkbox mr-3"> Möbelaufbau
+                                        </label>
+                                        <label class="flex items-center text-sm text-white cursor-pointer group">
+                                            <input type="checkbox" id="extra-verpackung" class="glass-checkbox mr-3"> Verpackungsservice
+                                        </label>
+                                        <label class="flex items-center text-sm text-white cursor-pointer group">
+                                            <input type="checkbox" id="extra-entruempelung" class="glass-checkbox mr-3"> Entrümpelung
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 6: Zusammenfassung -->
+                            <div id="step-6" class="form-step hidden space-y-4">
+                                <p class="text-sm text-gray-300 mb-4">Bitte überprüfen Sie Ihre Angaben vor dem Absenden.</p>
+                                <div id="summary-content" class="bg-navy-900/50 p-4 rounded-lg text-sm text-gray-300 space-y-2 border border-white/5">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Buttons -->
+                        <div class="mt-6 pt-4 border-t border-white/10 flex justify-between items-center">
+                            <button type="button" id="btn-prev" onclick="prevStep()" class="hidden text-sm text-gray-400 hover:text-white transition-colors">
+                                <i class="fa-solid fa-arrow-left mr-1"></i> Zurück
+                            </button>
+                            <div class="flex-grow"></div>
+                            <button type="button" id="btn-next" onclick="nextStep()" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded text-sm transition-all shadow-lg transform hover:-translate-y-0.5">
+                                Weiter <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                            <button type="button" id="btn-submit" onclick="submitForm()" class="hidden px-6 py-2.5 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-300 text-navy-900 font-bold rounded text-sm transition-all shadow-lg transform hover:-translate-y-0.5">
+                                Anfrage Senden <i class="fa-solid fa-paper-plane ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden lg:flex flex-col items-center">
+            <span class="text-xs text-gray-400 tracking-widest uppercase mb-2">Nach unten scrollen</span>
+            <i class="fa-solid fa-chevron-down text-gold-500"></i>
+        </div>
+    </section>
+
+    <!-- Leistungen -->
+    <section id="leistungen" class="py-24 bg-navy-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <span class="text-gold-500 font-medium tracking-widest uppercase text-sm">Unsere Spezialgebiete</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-white mt-2 mb-4">Maßgeschneiderte Leistungen</h2>
+                <div class="h-1 w-20 bg-gold-500 mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <button type="button" onclick="openServiceDetail('privat')" class="service-card fade-in-section text-left bg-navy-800 p-8 rounded-xl border border-navy-700 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-2 group" data-service="privat" aria-controls="service-detail" aria-expanded="false">
+                    <div class="w-14 h-14 bg-navy-900 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(212,175,55,0.1)] group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                        <i class="fa-solid fa-house text-2xl text-gold-500"></i>
+                    </div>
+                    <h3 class="text-xl font-serif text-white mb-3">Privatumzüge</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Mit modernen Verpackungstechniken transportieren wir Ihren Hausrat absolut sicher und mit Null-Schaden-Garantie in Ihr neues Zuhause.</p>
+                    <span class="mt-5 inline-flex items-center gap-2 text-gold-500 text-xs font-semibold uppercase tracking-wider">Mehr erfahren <i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+
+                <!-- Service 2 -->
+                <button type="button" onclick="openServiceDetail('firma')" class="service-card fade-in-section text-left bg-navy-800 p-8 rounded-xl border border-navy-700 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-2 group" style="transition-delay: 0.1s;" data-service="firma" aria-controls="service-detail" aria-expanded="false">
+                    <div class="w-14 h-14 bg-navy-900 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(212,175,55,0.1)] group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                        <i class="fa-solid fa-building text-2xl text-gold-500"></i>
+                    </div>
+                    <h3 class="text-xl font-serif text-white mb-3">Firmenumzüge</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Wir verlagern Ihr Büro effizient, ohne Ihre Geschäftsabläufe zu unterbrechen. Elektronik und Dokumente werden speziell gesichert.</p>
+                    <span class="mt-5 inline-flex items-center gap-2 text-gold-500 text-xs font-semibold uppercase tracking-wider">Mehr erfahren <i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+
+                <!-- Service 3 -->
+                <button type="button" onclick="openServiceDetail('montage')" class="service-card fade-in-section text-left bg-navy-800 p-8 rounded-xl border border-navy-700 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-2 group" style="transition-delay: 0.2s;" data-service="montage" aria-controls="service-detail" aria-expanded="false">
+                    <div class="w-14 h-14 bg-navy-900 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(212,175,55,0.1)] group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                        <i class="fa-solid fa-box-open text-2xl text-gold-500"></i>
+                    </div>
+                    <h3 class="text-xl font-serif text-white mb-3">Möbelmontage</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Professioneller Abbau und fachgerechte Montage Ihrer Möbel am Zielort durch unser erfahrenes Handwerker-Team.</p>
+                    <span class="mt-5 inline-flex items-center gap-2 text-gold-500 text-xs font-semibold uppercase tracking-wider">Mehr erfahren <i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+
+                <!-- Service 4 -->
+                <button type="button" onclick="openServiceDetail('entruempelung')" class="service-card fade-in-section text-left bg-navy-800 p-8 rounded-xl border border-navy-700 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-2 group" style="transition-delay: 0.3s;" data-service="entruempelung" aria-controls="service-detail" aria-expanded="false">
+                    <div class="w-14 h-14 bg-navy-900 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(212,175,55,0.1)] group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                        <i class="fa-solid fa-dumpster text-2xl text-gold-500"></i>
+                    </div>
+                    <h3 class="text-xl font-serif text-white mb-3">Entrümpelung</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Fachgerechte und besenreine Entrümpelung sowie umweltfreundliche Entsorgung von Altmöbeln und Sperrmüll.</p>
+                    <span class="mt-5 inline-flex items-center gap-2 text-gold-500 text-xs font-semibold uppercase tracking-wider">Mehr erfahren <i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+            </div>
+
+            <div id="service-detail" class="service-detail mt-12" hidden aria-live="polite">
+                <div class="bg-navy-800 rounded-2xl border border-gold-500/40 overflow-hidden shadow-2xl">
+                    <div class="grid lg:grid-cols-2">
+                        <div class="min-h-[280px] lg:min-h-[360px]">
+                            <img id="service-detail-image" src="images/privat-umzug.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 md:p-10 relative">
+                            <button type="button" id="service-detail-close" class="absolute top-5 right-5 w-10 h-10 rounded-full border border-navy-700 text-gray-300 hover:text-gold-500 hover:border-gold-500 transition-colors" aria-label="Details schließen">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                            <span id="service-detail-label" class="text-gold-500 text-xs font-semibold uppercase tracking-[0.2em]">Unsere Leistung</span>
+                            <h3 id="service-detail-title" class="text-3xl font-serif text-white mt-3 mb-5 pr-10"></h3>
+                            <p id="service-detail-text" class="text-gray-300 leading-relaxed mb-6"></p>
+                            <ul id="service-detail-list" class="space-y-3 text-sm text-gray-300 mb-8"></ul>
+                            <a href="#kontakt" class="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 text-navy-900 font-semibold rounded hover:bg-gold-400 transition-colors">Unverbindlich anfragen <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ablauf -->
+    <section id="ablauf" class="py-24 bg-navy-800 relative border-y border-navy-700">
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-in-section">
+                <span class="text-gold-500 font-medium tracking-widest uppercase text-sm">Prozess</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-white mt-2 mb-4">Unser perfekter Ablauf</h2>
+                <div class="h-1 w-20 bg-gold-500 mx-auto rounded"></div>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">Null Stress, maximale Zufriedenheit. Jeder Schritt Ihres Umzugs wird professionell geplant und durchgeführt.</p>
+            </div>
+
+            <div class="relative">
+                <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-navy-700">
+                    <div class="h-full bg-gold-500 w-full origin-left scale-x-0 transition-transform duration-1000 ease-in-out" id="process-line"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-4 relative">
+                    <!-- Step 1 -->
+                    <div class="fade-in-section relative text-center">
+                        <div class="w-24 h-24 mx-auto bg-navy-900 border-4 border-navy-700 rounded-full flex items-center justify-center relative z-10 text-2xl font-serif text-white transition-colors duration-500 hover:border-gold-500">
+                            <span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-navy-900 text-sm font-bold shadow-lg">1</span>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-white mb-2">Kostenlose Besichtigung</h3>
+                        <p class="text-sm text-gray-400 px-4">Unser Team bewertet das Volumen und plant den Bedarf an Fahrzeugen und Verpackungsmaterial.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="fade-in-section relative text-center" style="transition-delay: 0.2s;">
+                        <div class="w-24 h-24 mx-auto bg-navy-900 border-4 border-navy-700 rounded-full flex items-center justify-center relative z-10 text-2xl font-serif text-white transition-colors duration-500 hover:border-gold-500">
+                            <span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-navy-900 text-sm font-bold shadow-lg">2</span>
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-white mb-2">Premium Verpackung</h3>
+                        <p class="text-sm text-gray-400 px-4">Ihr Hausrat wird mit stoßfesten, erstklassigen Materialien sicher verpackt und beschriftet.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="fade-in-section relative text-center" style="transition-delay: 0.4s;">
+                        <div class="w-24 h-24 mx-auto bg-navy-900 border-4 border-navy-700 rounded-full flex items-center justify-center relative z-10 text-2xl font-serif text-white transition-colors duration-500 hover:border-gold-500">
+                            <span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-navy-900 text-sm font-bold shadow-lg">3</span>
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-white mb-2">Sicherer Transport</h3>
+                        <p class="text-sm text-gray-400 px-4">Mit unserem modernen Fuhrpark bringen wir Ihr Hab und Gut sicher an die neue Adresse.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="fade-in-section relative text-center" style="transition-delay: 0.6s;">
+                        <div class="w-24 h-24 mx-auto bg-navy-900 border-4 border-navy-700 rounded-full flex items-center justify-center relative z-10 text-2xl font-serif text-white transition-colors duration-500 hover:border-gold-500">
+                            <span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-navy-900 text-sm font-bold shadow-lg">4</span>
+                            <i class="fa-solid fa-couch"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-white mb-2">Montage & Aufbau</h3>
+                        <p class="text-sm text-gray-400 px-4">Am Zielort bauen wir Ihre Möbel auf und stellen alles genau dorthin, wo Sie es wünschen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über uns -->
+    <section id="ueber-uns" class="py-24 bg-navy-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-section relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-navy-700">
+                        <img src="images/ueber-uns-team.jpg" alt="MK Umzug & Transport Team beim Verladen eines Umzugskartons" class="w-full h-[500px] object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-8 right-4 lg:-right-8 bg-navy-800 p-6 rounded-xl border border-gold-500/30 shadow-xl max-w-[200px] backdrop-blur-sm hidden md:block">
+                        <div class="text-gold-500 text-4xl font-serif font-bold mb-1">100%</div>
+                        <div class="text-white text-sm">Zuverlässigkeit & Qualität</div>
+                    </div>
+                </div>
+
+                <div class="fade-in-section">
+                    <span class="text-gold-500 font-medium tracking-widest uppercase text-sm">Lernen Sie uns kennen</span>
+                    <h2 class="text-3xl md:text-4xl font-serif text-white mt-2 mb-6">Luxus und Vertrauen beim Umzug</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Als <strong>MK Umzug & Transport</strong> wissen wir, wie stressig ein Umzug sein kann. Deshalb bieten wir Ihnen mehr als nur Standard-Transport: Wir sind Ihr persönlicher Partner für einen reibungslosen Ablauf.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        Unser Ziel ist es nicht nur Kartons zu bewegen, sondern Ihr Leben nahtlos an den neuen Ort zu verlagern. Mit geschultem Personal, modernen Fahrzeugen und einem echten Premium-Gedanken machen wir Ihren Umzug zum entspannten Erlebnis.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 border-t border-navy-700 pt-8">
+                        <div>
+                            <div class="text-3xl font-serif text-gold-500 mb-1"><i class="fa-solid fa-truck-fast"></i></div>
+                            <div class="text-sm text-gray-400 mt-2">Moderner Fuhrpark</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-serif text-gold-500 mb-1"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="text-sm text-gray-400 mt-2">Vollversichert & Sicher</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bewertungen (echte Google-Rezensionen) -->
+    <section id="bewertungen" class="py-24 bg-navy-800 relative border-t border-navy-700 overflow-hidden">
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 30px 30px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-14 fade-in-section">
+                <span class="text-gold-500 font-medium tracking-widest uppercase text-sm">Bewertungen</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-white mt-2 mb-4">Das sagen unsere Kunden</h2>
+                <div class="h-1 w-20 bg-gold-500 mx-auto rounded"></div>
+                <a href="https://maps.app.goo.gl/oZUtk7v6nXuY3zUS8" target="_blank" rel="noopener" class="mt-6 inline-flex flex-wrap justify-center items-center gap-x-3 gap-y-1 px-5 py-3 rounded-full glass-panel hover:border-gold-500 transition-colors">
+                    <i class="fa-brands fa-google text-white text-xl"></i>
+                    <span class="text-2xl font-serif font-bold text-white">5,0</span>
+                    <span class="text-gold-500 flex gap-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                    <span class="text-sm text-gray-400">48 Google-Bewertungen</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="review-marquee relative z-10 fade-in-section">
+            <div class="review-track">
+                <div class="review-group">
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">S</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">silas muchenberger</figcaption>
+                                        <span class="text-xs text-gray-400">vor 6 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Wir bekamen recht kurzfristig einen Termin. Alles wie zugesagt abgelaufen. Pünktlich, sehr freundlich, schnell und sauber wurde alles innerhalb kurzer Zeit erledigt. Kann diese Firma jederzeit sehr empfehlen! Jederzeit wieder…. Danke Jungs- ihr ward super Gruß aus Inzlingen“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">R</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Richard B</figcaption>
+                                        <span class="text-xs text-gray-400">vor 2 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Wir hatten heute einen Umzug mit dem Team MK Transporte Rheinfelden. Das hat alles perfekt gepasst, von der Planung bis zum letzten Karton. Mega freundliches Team, und eine super saubere Arbeit. Können wir zu 100% jedem empfehlen.<br>Herzlichen Dank dem Team MK“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">C</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Chantal Glowacki</figcaption>
+                                        <span class="text-xs text-gray-400">vor 2 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Ich bin mehr als zufrieden. Trotz kurzfristiger Anfrage wurde der Umzug zu einem fairen Preis übernommen. Alle beteiligten Mitarbeiter waren sehr freundlich und haben trotz der extremen Hitze sehr schnell gearbeitet. Vielen Dank an das tolle Team, ihr wart uns eine riesen Hilfe. Ich kann MK Umzug &amp; Transport nur weiterempfehlen.“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">A</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Andreas Buhl</figcaption>
+                                        <span class="text-xs text-gray-400">vor 5 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Top Umzugsunternehmen! Sehr schnelle und zuverlässige Arbeitsweise. Trotz 3. Etage und schlechtem Wetter gab es keinerlei Probleme. Die Möbel wurden fachmännisch ab- und wieder aufgebaut. Ein sehr freundliches Team.<br>Vielen Dank!“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">C</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Ceca</figcaption>
+                                        <span class="text-xs text-gray-400">vor 9 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Absolut hervorragend Service! Das Team war pünktlich, äußerst freundlich und sehr sorgfältig im Umgang mit Möbeln. Alles wurde sicher transportiert, nichts beschädigt. Ein stressfreier Umzug dank echter Profis-uneingeschränkt empfehlenswert.<br>Granzov“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">A</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Alina Sobczyńska</figcaption>
+                                        <span class="text-xs text-gray-400">vor einem Jahr</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Ich bin mit der Leistung dieser Firma sehr zufrieden. Sie waren gründlich, zuverlässig, professionell, pünktlich und preiswert. Ich kann sie weiter empfehlen.  Herzliche Grüße an das gesamte nette und  fleißige Team. Vielen Dank.“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">G</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">G. H.</figcaption>
+                                        <span class="text-xs text-gray-400">vor einem Jahr</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Ich habe MK kontaktiert, da es ein komplettes Haus leerzuräumen galt. Ich habe auf meine erste Anfrage schnell und freundlich Antwort erhalten, kurze Zeit später kam Mustafa bei mir vorbei und machte sich ein Bild. Das Angebot folgte enorm schnell und heute wurde das Haus pünktlich zum vereinbarten Termin entrümpelt. Alle Absprachen wurden berücksichtigt.<br>Mega freundliches Team, fairer Preis - uneingeschränkte Weiterempfehlung!“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">U</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Uwe Meitinger</figcaption>
+                                        <span class="text-xs text-gray-400">vor 9 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„SchnelleTerminvergabe, Reibungsloser Ablauf.<br>Kontaktfreundlich, Zuverlässigkeit.<br>Sehr flexibel auf Änderungen. Vielen Dank 👍“</blockquote>
+                        </figure>
+                </div>
+                <div class="review-group" aria-hidden="true">
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">S</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">silas muchenberger</figcaption>
+                                        <span class="text-xs text-gray-400">vor 6 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Wir bekamen recht kurzfristig einen Termin. Alles wie zugesagt abgelaufen. Pünktlich, sehr freundlich, schnell und sauber wurde alles innerhalb kurzer Zeit erledigt. Kann diese Firma jederzeit sehr empfehlen! Jederzeit wieder…. Danke Jungs- ihr ward super Gruß aus Inzlingen“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">R</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Richard B</figcaption>
+                                        <span class="text-xs text-gray-400">vor 2 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Wir hatten heute einen Umzug mit dem Team MK Transporte Rheinfelden. Das hat alles perfekt gepasst, von der Planung bis zum letzten Karton. Mega freundliches Team, und eine super saubere Arbeit. Können wir zu 100% jedem empfehlen.<br>Herzlichen Dank dem Team MK“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">C</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Chantal Glowacki</figcaption>
+                                        <span class="text-xs text-gray-400">vor 2 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Ich bin mehr als zufrieden. Trotz kurzfristiger Anfrage wurde der Umzug zu einem fairen Preis übernommen. Alle beteiligten Mitarbeiter waren sehr freundlich und haben trotz der extremen Hitze sehr schnell gearbeitet. Vielen Dank an das tolle Team, ihr wart uns eine riesen Hilfe. Ich kann MK Umzug &amp; Transport nur weiterempfehlen.“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">A</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Andreas Buhl</figcaption>
+                                        <span class="text-xs text-gray-400">vor 5 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Top Umzugsunternehmen! Sehr schnelle und zuverlässige Arbeitsweise. Trotz 3. Etage und schlechtem Wetter gab es keinerlei Probleme. Die Möbel wurden fachmännisch ab- und wieder aufgebaut. Ein sehr freundliches Team.<br>Vielen Dank!“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">C</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Ceca</figcaption>
+                                        <span class="text-xs text-gray-400">vor 9 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Absolut hervorragend Service! Das Team war pünktlich, äußerst freundlich und sehr sorgfältig im Umgang mit Möbeln. Alles wurde sicher transportiert, nichts beschädigt. Ein stressfreier Umzug dank echter Profis-uneingeschränkt empfehlenswert.<br>Granzov“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">A</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Alina Sobczyńska</figcaption>
+                                        <span class="text-xs text-gray-400">vor einem Jahr</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Ich bin mit der Leistung dieser Firma sehr zufrieden. Sie waren gründlich, zuverlässig, professionell, pünktlich und preiswert. Ich kann sie weiter empfehlen.  Herzliche Grüße an das gesamte nette und  fleißige Team. Vielen Dank.“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">G</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">G. H.</figcaption>
+                                        <span class="text-xs text-gray-400">vor einem Jahr</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„Ich habe MK kontaktiert, da es ein komplettes Haus leerzuräumen galt. Ich habe auf meine erste Anfrage schnell und freundlich Antwort erhalten, kurze Zeit später kam Mustafa bei mir vorbei und machte sich ein Bild. Das Angebot folgte enorm schnell und heute wurde das Haus pünktlich zum vereinbarten Termin entrümpelt. Alle Absprachen wurden berücksichtigt.<br>Mega freundliches Team, fairer Preis - uneingeschränkte Weiterempfehlung!“</blockquote>
+                        </figure>
+                        <figure class="review-card glass-panel rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-full bg-navy-700 border border-gold-500/40 flex items-center justify-center text-gold-500 font-serif text-lg">U</div>
+                                    <div>
+                                        <figcaption class="text-white font-medium leading-tight">Uwe Meitinger</figcaption>
+                                        <span class="text-xs text-gray-400">vor 9 Monaten</span>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-400 text-lg" title="Google Rezension"></i>
+                            </div>
+                            <div class="text-gold-500 text-sm mb-3 flex gap-1" aria-label="5 von 5 Sternen"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <blockquote class="text-sm text-gray-300 leading-relaxed">„SchnelleTerminvergabe, Reibungsloser Ablauf.<br>Kontaktfreundlich, Zuverlässigkeit.<br>Sehr flexibel auf Änderungen. Vielen Dank 👍“</blockquote>
+                        </figure>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
+            <a href="https://maps.app.goo.gl/oZUtk7v6nXuY3zUS8" target="_blank" rel="noopener" class="px-6 py-3 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900 rounded-full transition-all duration-300 text-sm font-semibold flex items-center gap-2">
+                <i class="fa-brands fa-google"></i> Alle Bewertungen auf Google ansehen
+            </a>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJtePzDWi1kUcRepL2Gch345U" target="_blank" rel="noopener" class="px-6 py-3 text-gray-300 hover:text-gold-500 transition-colors text-sm font-medium flex items-center gap-2">
+                <i class="fa-solid fa-pen"></i> Bewertung schreiben
+            </a>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="py-24 bg-navy-800 border-t border-navy-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <span class="text-gold-500 font-medium tracking-widest uppercase text-sm">Kontakt</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-white mt-2 mb-4">Nehmen Sie Kontakt auf</h2>
+                <div class="h-1 w-20 bg-gold-500 mx-auto rounded"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div class="lg:col-span-1 space-y-6 fade-in-section">
+                    <div class="bg-navy-900 p-6 rounded-xl border border-navy-700 flex items-start gap-4 hover:border-gold-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-navy-800 flex items-center justify-center text-gold-500 shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h4 class="text-white font-medium mb-1">Standort</h4>
+                            <p class="text-gray-400 text-sm">Augster Str. 28<br>79618 Rheinfelden (Baden)<br>Deutschland</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-navy-900 p-6 rounded-xl border border-navy-700 flex items-start gap-4 hover:border-gold-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-navy-800 flex items-center justify-center text-gold-500 shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h4 class="text-white font-medium mb-1">Telefon</h4>
+                            <p class="text-gray-400 text-sm"><a href="tel:01746599377" class="hover:text-gold-500">0174 659 93 77</a></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-navy-900 p-6 rounded-xl border border-navy-700 flex items-start gap-4 hover:border-gold-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-navy-800 flex items-center justify-center text-gold-500 shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h4 class="text-white font-medium mb-1">E-Mail</h4>
+                            <p class="text-gray-400 text-sm"><a href="mailto:Mk.umzugtransport@gmail.com" class="hover:text-gold-500 break-all">Mk.umzugtransport@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-navy-900 p-6 rounded-xl border border-navy-700 flex items-start gap-4 hover:border-gold-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-navy-800 flex items-center justify-center text-gold-500 shrink-0">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h4 class="text-white font-medium mb-1">Webseite</h4>
+                            <p class="text-gray-400 text-sm"><a href="https://www.mkumzugtransport.de/" target="_blank" class="hover:text-gold-500 break-all">www.mkumzugtransport.de</a></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-navy-900 p-6 rounded-xl border border-navy-700 flex items-start gap-4 hover:border-gold-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-navy-800 flex items-center justify-center text-gold-500 shrink-0">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h4 class="text-white font-medium mb-3">Social Media & WhatsApp</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://wa.me/491746599377" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp" class="w-11 h-11 rounded-full border border-navy-700 bg-navy-800 flex items-center justify-center text-gold-500 text-xl hover:bg-gold-500 hover:text-navy-900 hover:border-gold-500 transition-all duration-300">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mkumzugtransport/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="w-11 h-11 rounded-full border border-navy-700 bg-navy-800 flex items-center justify-center text-gold-500 text-xl hover:bg-gold-500 hover:text-navy-900 hover:border-gold-500 transition-all duration-300">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/p/Mk-UmzugTransport-100087751075223/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook" class="w-11 h-11 rounded-full border border-navy-700 bg-navy-800 flex items-center justify-center text-gold-500 text-xl hover:bg-gold-500 hover:text-navy-900 hover:border-gold-500 transition-all duration-300">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Contact Form -->
+                <div class="lg:col-span-2 bg-navy-900 p-8 rounded-xl border border-navy-700 fade-in-section" style="transition-delay: 0.2s;">
+                    <h3 class="text-2xl font-serif text-white mb-6">Schnelle Nachricht</h3>
+                    <form class="space-y-4" action="mailto:Mk.umzugtransport@gmail.com" method="post" enctype="text/plain">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" name="Name" placeholder="Ihr Name" required class="w-full bg-navy-800 border border-navy-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" name="Email" placeholder="Ihre E-Mail" required class="w-full bg-navy-800 border border-navy-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <textarea rows="4" name="Nachricht" placeholder="Ihre Nachricht..." required class="w-full bg-navy-800 border border-navy-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-gold-500 transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="px-8 py-3 bg-transparent border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900 font-medium rounded transition-all duration-300">
+                            Nachricht senden
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050d1a] pt-16 pb-8 border-t border-navy-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-1">
+                    <a href="#startseite" class="text-2xl font-serif font-bold text-white tracking-wider flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-truck-fast text-gold-500"></i>
+                        MK UMZUG
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Ihr Premium Umzugs- und Transportpartner in Rheinfelden und Umgebung. Vertrauen Sie den Profis.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">Schnellzugriff</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#startseite" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Startseite</a></li>
+                        <li><a href="#ueber-uns" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Über uns</a></li>
+                        <li><a href="#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Leistungen</a></li>
+                        <li><a href="#ablauf" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Ablauf</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">Leistungen</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Privatumzüge</a></li>
+                        <li><a href="#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Firmenumzüge</a></li>
+                        <li><a href="#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Möbelmontage</a></li>
+                        <li><a href="#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Entrümpelung</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">Kontakt</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400 text-sm">Augster Str. 28</li>
+                        <li class="text-gray-400 text-sm">79618 Rheinfelden</li>
+                        <li class="text-gray-400 text-sm">Tel: 0174 659 93 77</li>
+                        <li class="text-gray-400 text-sm break-words">Mk.umzugtransport@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-navy-800 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 MK Umzug & Transport. Alle Rechte vorbehalten.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-navy-900/95', 'backdrop-blur-md', 'shadow-lg', 'py-2');
+                navbar.classList.remove('bg-transparent', 'py-4');
+            } else {
+                navbar.classList.remove('bg-navy-900/95', 'backdrop-blur-md', 'shadow-lg', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+            }
+
+            const processLine = document.getElementById('process-line');
+            if (processLine) {
+                const processSection = document.getElementById('ablauf');
+                const rect = processSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    processLine.style.transform = 'scaleX(1)';
+                } else {
+                    processLine.style.transform = 'scaleX(0)';
+                }
+            }
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+
+        // Intersection Observer for Fade-in animations
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        const serviceDetails = {
+            privat: {
+                title: 'Privatumzüge',
+                image: 'images/privat-umzug.jpg',
+                alt: 'MK Umzug Team beim Beladen des Umzugswagens',
+                text: 'Ein privater Umzug soll sich wie ein guter Neuanfang anfühlen. Wir übernehmen Planung, Schutz und Transport Ihres Hausrats mit viel Sorgfalt.',
+                items: ['Persönliche Umzugsplanung und Besichtigung', 'Sicheres Verpacken von Möbeln, Glas und Technik', 'Transparente Abstimmung für einen entspannten Umzug']
+            },
+            firma: {
+                title: 'Firmenumzüge',
+                image: 'images/bueroumzug.jpg',
+                alt: 'MK Umzug Team beim Büroumzug vor einem Bürogebäude',
+                text: 'Damit Ihr Betrieb schnell wieder weiterläuft, koordinieren wir den Standortwechsel zuverlässig und mit klaren Zeitfenstern.',
+                items: ['Strukturierte Planung außerhalb Ihrer Kernzeiten', 'Sicherer Transport von Technik und Unterlagen', 'Koordination von Abbau, Transport und Aufbau']
+            },
+            montage: {
+                title: 'Möbelmontage',
+                image: 'images/mk-karton.jpg',
+                alt: 'Zwei Mitarbeiter tragen einen MK Umzugskarton',
+                text: 'Von der einzelnen Schrankwand bis zur kompletten Einrichtung: Unser Team baut Ihre Möbel fachgerecht ab und am Zielort wieder auf.',
+                items: ['Schonender Abbau und sichere Kennzeichnung', 'Fachgerechter Aufbau am neuen Standort', 'Passende Abstimmung mit Ihrem Umzugstermin']
+            },
+            entruempelung: {
+                title: 'Entrümpelung',
+                image: 'images/team-verladen.jpg',
+                alt: 'MK Umzug Team beim Verladen am Transporter',
+                text: 'Wir schaffen Platz und hinterlassen Räume besenrein. Unbrauchbare Gegenstände werden sortiert und verantwortungsvoll entsorgt.',
+                items: ['Komplette Räumung von Wohnungen, Kellern und Büros', 'Sortierte und umweltbewusste Entsorgung', 'Besondere Rücksicht auf empfindliche Räume und Nachbarschaft']
+            }
+        };
+
+        const serviceDetail = document.getElementById('service-detail');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        function openServiceDetail(serviceKey) {
+            const service = serviceDetails[serviceKey];
+            if (!service) return;
+
+            document.getElementById('service-detail-title').textContent = service.title;
+            document.getElementById('service-detail-text').textContent = service.text;
+            const image = document.getElementById('service-detail-image');
+            image.src = service.image;
+            image.alt = service.alt;
+            document.getElementById('service-detail-list').innerHTML = service.items
+                .map(item => `<li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold-500 mt-1"></i><span>${item}</span></li>`)
+                .join('');
+
+            serviceDetail.hidden = false;
+            serviceCards.forEach(card => card.setAttribute('aria-expanded', card.dataset.service === serviceKey ? 'true' : 'false'));
+            serviceDetail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        document.getElementById('service-detail-close').addEventListener('click', () => {
+            serviceDetail.hidden = true;
+            serviceCards.forEach(card => card.setAttribute('aria-expanded', 'false'));
+        });
+
+        // --- Multi-Step Form Logic ---
+        let currentStep = 1;
+        const totalSteps = 6;
+        const stepNames = [
+            "Routenplanung", "Abholort", "Zielort", "Wohnungsdaten", "Termin & Extras", "Zusammenfassung"
+        ];
+        
+        window.calculatedDistance = null;
+
+        function updateButtons() {
+            document.getElementById('btn-prev').classList.toggle('hidden', currentStep === 1);
+            if (currentStep === totalSteps) {
+                document.getElementById('btn-next').classList.add('hidden');
+                document.getElementById('btn-submit').classList.remove('hidden');
+            } else {
+                document.getElementById('btn-next').classList.remove('hidden');
+                document.getElementById('btn-submit').classList.add('hidden');
+            }
+        }
+
+        function showStep(step) {
+            for(let i=1; i<=totalSteps; i++) {
+                document.getElementById('step-'+i).classList.add('hidden');
+                document.getElementById('step-'+i).classList.remove('block');
+            }
+            document.getElementById('step-'+step).classList.remove('hidden');
+            document.getElementById('step-'+step).classList.add('block');
+            
+            document.getElementById('step-indicator').innerText = `Schritt ${step} von ${totalSteps}: ${stepNames[step-1]}`;
+            updateButtons();
+            
+            if(step === 6) {
+                generateSummary();
+            }
+        }
+
+        function nextStep() {
+            if(currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if(currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        async function calculateDistance() {
+            const btn = document.querySelector('button[onclick="calculateDistance()"]');
+            const display = document.getElementById('distance-display');
+            const origin = document.getElementById('route-from').value.trim();
+            const dest = document.getElementById('route-to').value.trim();
+            
+            if(!origin || !dest) {
+                display.innerHTML = '<span class="text-red-400">Bitte beide Adressen eingeben.</span>';
+                display.classList.remove('hidden');
+                return;
+            }
+            
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Berechne...';
+            display.classList.add('hidden');
+            
+            try {
+                // Nominatim API requests
+                const res1 = await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(origin)}`);
+                const data1 = await res1.json();
+                const res2 = await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(dest)}`);
+                const data2 = await res2.json();
+                
+                if(data1.length > 0 && data2.length > 0) {
+                    const lat1 = parseFloat(data1[0].lat), lon1 = parseFloat(data1[0].lon);
+                    const lat2 = parseFloat(data2[0].lat), lon2 = parseFloat(data2[0].lon);
+                    
+                    // Haversine formula
+                    const R = 6371; // Earth's radius in km
+                    const dLat = (lat2-lat1) * Math.PI / 180;
+                    const dLon = (lon2-lon1) * Math.PI / 180;
+                    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                              Math.sin(dLon/2) * Math.sin(dLon/2);
+                    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                    const d = R * c;
+                    
+                    window.calculatedDistance = Math.round(d);
+                    display.innerHTML = `<i class="fa-solid fa-check text-green-400 mr-1"></i> Luftlinie: ca. ${window.calculatedDistance} km`;
+                } else {
+                    display.innerHTML = '<span class="text-yellow-400">Ort nicht gefunden. Bitte überprüfen.</span>';
+                }
+            } catch (e) {
+                display.innerHTML = '<span class="text-red-400">Fehler bei der Berechnung.</span>';
+            } finally {
+                btn.innerHTML = '<i class="fa-solid fa-map-location-dot mr-2"></i> Entfernung berechnen';
+                display.classList.remove('hidden');
+            }
+        }
+
+        function generateSummary() {
+            const getVal = (id) => document.getElementById(id).value || '-';
+            const isChecked = (id) => document.getElementById(id).checked ? 'Ja' : 'Nein';
+            
+            const distStr = window.calculatedDistance ? `${window.calculatedDistance} km` : 'Nicht berechnet';
+            
+            let html = `
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <div><strong>Von:</strong> ${getVal('route-from')}</div>
+                    <div><strong>Nach:</strong> ${getVal('route-to')}</div>
+                    <div class="col-span-2 text-gold-500"><strong>Distanz:</strong> ${distStr}</div>
+                </div>
+                <hr class="border-white/10 my-2">
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <div><strong>Abholort:</strong> Etage ${getVal('pickup-floor')} (Aufzug: ${getVal('pickup-elevator')})</div>
+                    <div><strong>Zielort:</strong> Etage ${getVal('dropoff-floor')} (Aufzug: ${getVal('dropoff-elevator')})</div>
+                </div>
+                <hr class="border-white/10 my-2">
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <div><strong>Wohnung:</strong> ${getVal('home-size')} m²</div>
+                    <div><strong>Zimmer:</strong> ${getVal('room-count')}</div>
+                    <div class="col-span-2 text-gold-500"><strong>Termin:</strong> ${getVal('move-date')}</div>
+                </div>
+                <hr class="border-white/10 my-2">
+                <div>
+                    <strong>Extras:</strong><br>
+                    Abbau: ${isChecked('extra-abbau')} | Aufbau: ${isChecked('extra-aufbau')} <br>
+                    Verpackung: ${isChecked('extra-verpackung')} | Entrümpelung: ${isChecked('extra-entruempelung')}
+                </div>
+            `;
+            document.getElementById('summary-content').innerHTML = html;
+        }
+
+        function submitForm() {
+            const getVal = (id) => document.getElementById(id).value || 'Nicht angegeben';
+            const isChecked = (id) => document.getElementById(id).checked ? 'Ja' : 'Nein';
+            const distStr = window.calculatedDistance ? `${window.calculatedDistance} km` : 'Nicht berechnet';
+
+            let body = `Neue Umzugsanfrage über die Webseite:\n\n`;
+            body += `--- ROUTE ---\n`;
+            body += `Von: ${getVal('route-from')}\n`;
+            body += `Nach: ${getVal('route-to')}\n`;
+            body += `Ungefähre Entfernung: ${distStr}\n\n`;
+            
+            body += `--- DETAILS ABHOLORT ---\n`;
+            body += `Etage: ${getVal('pickup-floor')}\n`;
+            body += `Aufzug vorhanden: ${getVal('pickup-elevator')}\n\n`;
+            
+            body += `--- DETAILS ZIELORT ---\n`;
+            body += `Etage: ${getVal('dropoff-floor')}\n`;
+            body += `Aufzug vorhanden: ${getVal('dropoff-elevator')}\n\n`;
+            
+            body += `--- WOHNUNG & TERMIN ---\n`;
+            body += `Wohnfläche: ${getVal('home-size')} m²\n`;
+            body += `Zimmeranzahl: ${getVal('room-count')}\n`;
+            body += `Gewünschter Termin: ${getVal('move-date')}\n\n`;
+            
+            body += `--- ZUSÄTZLICHE LEISTUNGEN ---\n`;
+            body += `Möbelabbau: ${isChecked('extra-abbau')}\n`;
+            body += `Möbelaufbau: ${isChecked('extra-aufbau')}\n`;
+            body += `Verpackungsservice: ${isChecked('extra-verpackung')}\n`;
+            body += `Entrümpelung: ${isChecked('extra-entruempelung')}\n`;
+
+            const mailtoLink = `mailto:Mk.umzugtransport@gmail.com?subject=${encodeURIComponent('Neue Umzugsanfrage - ' + getVal('route-from'))}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
