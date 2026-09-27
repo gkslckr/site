@@ -177,32 +177,23 @@
             display: none;
         }
 
-        /* Leistungen: endlos laufendes Karussell (Karten-Design unveraendert) */
+        /* Leistungen: endlos laufendes Karussell (Karten-Design unveraendert).
+           Der Lauf wird ueber scrollLeft erzeugt - also genau die Mechanik, die
+           auch beim Wischen greift. So koennen Automatik und Finger nie
+           gegeneinander arbeiten, und iOS unterdrueckt nichts. */
         .services-marquee {
             overflow-x: auto;
             overflow-y: hidden;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            -webkit-overflow-scrolling: touch;
+            scroll-behavior: auto;
+            overscroll-behavior-x: contain;
         }
         .services-marquee::-webkit-scrollbar { display: none; }
         .services-track {
             display: flex;
             width: max-content;
             padding-bottom: 0.5rem;
-            animation: servicesScroll 60s linear infinite;
-        }
-        .services-marquee:hover .services-track,
-        .services-marquee:focus-within .services-track,
-        .services-track.is-paused {
-            animation-play-state: paused;
-        }
-        @keyframes servicesScroll {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .services-track { animation: none; }
         }
     </style>
 </head>
@@ -260,7 +251,7 @@
         <!-- Background Image with Zoom Effect -->
         <div class="absolute inset-0 z-0">
             <video src="videos/hero-umzug.mp4"
-                   poster="images/hero-umzug.jpg"
+                   poster="images/hero-poster.jpg"
                    autoplay muted loop playsinline preload="auto" aria-hidden="true"
                    class="w-full h-full object-cover hero-bg origin-center"></video>
             <div class="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-navy-900/50"></div>
@@ -1092,16 +1083,42 @@
                 observer.observe(clone);
             });
 
-            // Bei Beruehrung/Wischen anhalten, danach ruhig weiterlaufen.
-            let resume;
-            const pause = () => { clearTimeout(resume); track.classList.add('is-paused'); };
-            const release = () => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const SPEED = 34;                 // Pixel pro Sekunde - ruhig, aber sichtbar
+            let pos = 0, last = null, paused = false, visible = true, resume;
+
+            // Bei Beruehrung/Wischen anhalten, 1,5 s nach der letzten Geste weiter.
+            const nudge = () => {
+                paused = true;
                 clearTimeout(resume);
-                resume = setTimeout(() => track.classList.remove('is-paused'), 1500);
+                resume = setTimeout(() => { pos = marquee.scrollLeft; paused = false; }, 1500);
             };
-            ['pointerdown', 'touchstart'].forEach(e => marquee.addEventListener(e, pause, { passive: true }));
-            ['pointerup', 'pointercancel', 'touchend', 'touchcancel'].forEach(e => marquee.addEventListener(e, release, { passive: true }));
-            marquee.addEventListener('scroll', () => { pause(); release(); }, { passive: true });
+            ['pointerdown', 'touchstart', 'wheel'].forEach(e =>
+                marquee.addEventListener(e, nudge, { passive: true }));
+
+            // Auf Zeigegeraeten zusaetzlich beim Ueberfahren anhalten.
+            if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+                marquee.addEventListener('mouseenter', () => { paused = true; });
+                marquee.addEventListener('mouseleave', () => { pos = marquee.scrollLeft; paused = false; });
+            }
+
+            // Ausserhalb des Sichtfelds nicht rechnen.
+            new IntersectionObserver(es => { visible = es[0].isIntersecting; })
+                .observe(marquee);
+
+            requestAnimationFrame(function step(now) {
+                if (last === null) last = now;
+                const dt = Math.min((now - last) / 1000, 0.05);
+                last = now;
+                if (!paused && visible) {
+                    const half = track.scrollWidth / 2;
+                    pos += SPEED * dt;
+                    if (pos >= half) pos -= half;      // zweite Kartenreihe = nahtloser Sprung
+                    marquee.scrollLeft = pos;
+                }
+                requestAnimationFrame(step);
+            });
         })();
 
         // --- Ueber-uns-Video nur abspielen, solange der Abschnitt sichtbar ist ---
