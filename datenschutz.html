@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Datenschutzerklärung von MK Umzug &amp; Transport – ohne Cookies und ohne Tracking.">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz | MK Umzug &amp; Transport</title>
+    
+    <!-- Google Fonts: Playfair Display for elegant headings, Montserrat for clean body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0a192f',
+                            800: '#112240',
+                            700: '#233554',
+                        },
+                        gold: {
+                            500: '#d4af37',
+                            400: '#e5c158',
+                            600: '#aa8c2c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            background-color: #0a192f;
+            color: #e2e8f0;
+        }
+
+        /* Hero Image Zoom Animation */
+        .hero-bg {
+            animation: zoomEffect 20s infinite alternate linear;
+        }
+        @keyframes zoomEffect {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        /* Glassmorphism Styling */
+        .glass-panel {
+            background: rgba(17, 34, 64, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Input Styling within Glass */
+        .glass-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .glass-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Checkbox styling */
+        .glass-checkbox {
+            accent-color: #d4af37;
+            width: 1.2rem;
+            height: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Date input placeholder fix for WebKit */
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        /* Fade-in Animation for Scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a192f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #aa8c2c;
+        }
+        
+        /* Internal scrollbar for form */
+        .form-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .form-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+        .form-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.5);
+            border-radius: 4px;
+        }
+        /* Bewertungen: endlos laufendes Band */
+        .review-marquee {
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+        }
+        .review-track {
+            display: flex;
+            width: max-content;
+            animation: reviewScroll 70s linear infinite;
+        }
+        .review-marquee:hover .review-track {
+            animation-play-state: paused;
+        }
+        .review-group {
+            display: flex;
+            gap: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .review-card {
+            width: 340px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 640px) {
+            .review-card { width: 280px; }
+            .review-track { animation-duration: 55s; }
+        }
+        @keyframes reviewScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .review-marquee { overflow-x: auto; }
+            .review-track { animation: none; }
+        }
+        .service-card:focus-visible {
+            outline: 2px solid #d4af37;
+            outline-offset: 4px;
+        }
+        .service-detail[hidden] {
+            display: none;
+        }
+
+        /* Leistungen: endlos laufendes Karussell (Karten-Design unveraendert) */
+        .services-marquee {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .services-marquee::-webkit-scrollbar { display: none; }
+        .services-track {
+            display: flex;
+            width: max-content;
+            padding-bottom: 0.5rem;
+            animation: servicesScroll 60s linear infinite;
+        }
+        .services-marquee:hover .services-track,
+        .services-marquee:focus-within .services-track,
+        .services-track.is-paused {
+            animation-play-state: paused;
+        }
+        @keyframes servicesScroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .services-track { animation: none; }
+        }
+    </style>
+</head>
+<body class="bg-navy-900">
+
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html#startseite" class="text-2xl font-serif font-bold text-white tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-truck-fast text-gold-500"></i>
+                        MK <span class="text-gold-500 font-light text-xl">Umzug &amp; Transport</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html#startseite" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Startseite</a>
+                    <a href="index.html#leistungen" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Leistungen</a>
+                    <a href="index.html#ablauf" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Ablauf</a>
+                    <a href="index.html#ueber-uns" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Über uns</a>
+                    <a href="index.html#kontakt" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest font-medium">Kontakt</a>
+                    
+                    <!-- Call Button in Navbar -->
+                    <a href="tel:+491746599377" class="ml-4 px-5 py-2 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900 rounded-full transition-all duration-300 text-sm font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i> +49 174 659 93 77
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gold-500 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-900/95 backdrop-blur-md absolute w-full top-full border-t border-navy-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html#startseite" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Startseite</a>
+                <a href="index.html#leistungen" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Leistungen</a>
+                <a href="index.html#ablauf" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Ablauf</a>
+                <a href="index.html#ueber-uns" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Über uns</a>
+                <a href="index.html#kontakt" class="block px-3 py-2 text-white hover:text-gold-500 uppercase text-xs tracking-wider">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 bg-navy-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="text-gold-500 font-medium tracking-widest uppercase text-sm">Rechtliches</span>
+            <h1 class="text-3xl md:text-4xl font-serif text-white mt-2 mb-4">Datenschutzerklärung</h1>
+            <div class="h-1 w-20 bg-gold-500 rounded mb-10"></div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Diese Erklärung beschreibt, welche Daten beim Besuch dieser Website tatsächlich verarbeitet werden. Sie bezieht sich ausschließlich auf die hier eingesetzte Technik.</p>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">1. Verantwortlicher</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">MK Umzug &amp; Transport<br>Augster Str. 28<br>79618 Rheinfelden<br>Telefon: <a href="tel:+491746599377" class="hover:text-gold-500 transition-colors">+49 174 659 93 77</a><br>E-Mail: <a href="mailto:Mk.umzugtransport@gmail.com" class="hover:text-gold-500 transition-colors break-all">Mk.umzugtransport@gmail.com</a></p>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">2. Keine Cookies, kein Tracking</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Diese Website setzt <strong class="text-gray-300">keine Cookies</strong>, verwendet keine Analyse- oder Tracking-Dienste, keine Werbenetzwerke und keine Social-Media-Plugins. Es werden keine Nutzungsprofile erstellt. Ein Cookie-Banner ist deshalb nicht erforderlich.</p>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">3. Aufruf der Website und Server-Logfiles</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Beim Aufruf der Website übermittelt Ihr Browser technisch notwendige Daten (u. a. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp). Die Verarbeitung erfolgt zur technischen Bereitstellung und Sicherheit der Website auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</p>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">4. Extern eingebundene Ressourcen</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Gestaltung und Schriften werden über externe Dienste geladen. Dabei wird Ihre IP-Adresse an den jeweiligen Anbieter übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (ansprechende und technisch einwandfreie Darstellung).</p>
+            <ul class="space-y-2 mb-4 list-disc pl-5 marker:text-gold-500">
+                <li class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Google Fonts</strong> (fonts.googleapis.com, fonts.gstatic.com) – Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Die Schriften werden beim Seitenaufruf von Google-Servern geladen.</li>
+                <li class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Font Awesome</strong> über cdnjs (cdnjs.cloudflare.com) – Anbieter: Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA. Hierüber werden die Symbole der Website geladen.</li>
+                <li class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Tailwind CSS</strong> (cdn.tailwindcss.com) – hierüber wird das Stylesheet der Website geladen.</li>
+            </ul>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">5. Entfernungsberechnung im Anfrageformular</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Im Anfrageformular kann die Entfernung zwischen zwei Orten berechnet werden. Erst wenn Sie die Schaltfläche „Entfernung berechnen“ aktiv anklicken, werden die von Ihnen eingegebenen Orts- bzw. Adressangaben zusammen mit Ihrer IP-Adresse an den Dienst <strong class="text-gray-300">Nominatim</strong> der OpenStreetMap Foundation (St John’s Innovation Centre, Cowley Road, Cambridge, CB4 0WS, Vereinigtes Königreich) übermittelt, um die Koordinaten zu ermitteln. Ohne diesen Klick findet keine Übermittlung statt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, bei Vertragsanbahnung Art. 6 Abs. 1 lit. b DSGVO.</p>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">6. Anfrageformular und Kontaktaufnahme</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Die Formulare dieser Website speichern keine Daten auf einem Server. Beim Absenden wird Ihr lokales E-Mail-Programm mit den von Ihnen eingegebenen Angaben geöffnet; der Versand erfolgt über Ihren eigenen E-Mail-Anbieter. Erst mit dem tatsächlichen Versand erreichen uns Ihre Angaben per E-Mail.</p>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Wenn Sie uns per E-Mail, Telefon oder WhatsApp kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung der Anfrage auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO. Die Daten werden gelöscht, sobald sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungsfristen entgegenstehen.</p>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">7. Verlinkung zu externen Diensten</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Die Website verlinkt auf externe Angebote. Es handelt sich ausschließlich um einfache Links – es sind keine Inhalte dieser Dienste eingebettet und beim bloßen Aufruf der Website werden keine Daten an sie übertragen. Eine Datenübermittlung erfolgt erst, wenn Sie einen Link aktiv anklicken. Danach gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+            <ul class="space-y-2 mb-4 list-disc pl-5 marker:text-gold-500">
+                <li class="text-gray-400 text-sm leading-relaxed">WhatsApp (wa.me) – WhatsApp Ireland Limited</li>
+                <li class="text-gray-400 text-sm leading-relaxed">Instagram und Facebook – Meta Platforms Ireland Limited</li>
+                <li class="text-gray-400 text-sm leading-relaxed">Google Maps und Google-Rezensionen – Google Ireland Limited</li>
+            </ul>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">8. Ihre Rechte</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Sie haben jederzeit das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) und Datenübertragbarkeit (Art. 20 DSGVO). Einer Verarbeitung auf Grundlage berechtigter Interessen können Sie gemäß Art. 21 DSGVO widersprechen. Zudem steht Ihnen ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu; zuständig ist regelmäßig die Behörde Ihres Wohnsitzes oder unseres Unternehmenssitzes.</p>
+            <h2 class="text-xl font-serif text-white mt-10 mb-3">9. SSL-/TLS-Verschlüsselung</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Diese Website nutzt eine verschlüsselte Übertragung. Eine verschlüsselte Verbindung erkennen Sie am Schlosssymbol und am Präfix „https://“ in der Adresszeile Ihres Browsers.</p>
+            <div class="border border-gold-500/40 bg-navy-800 rounded-xl p-6 my-8">
+                <p class="text-gold-500 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Noch zu ergänzende Unternehmensangaben</p>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Die folgenden Angaben liegen im Projekt nicht vor und wurden bewusst nicht erfunden. Sie müssen vom Unternehmen ergänzt werden:</p>
+                <ul class="space-y-2 list-disc pl-5 marker:text-gold-500">
+                    <li class="text-gray-300 text-sm leading-relaxed">Name und Anschrift des Hosting-Anbieters sowie die Speicherdauer der Server-Logfiles – erst nach Wahl des endgültigen Hosters ergänzbar</li>
+                    <li class="text-gray-300 text-sm leading-relaxed">Auftragsverarbeitungsvertrag mit dem Hosting-Anbieter (Art. 28 DSGVO)</li>
+                    <li class="text-gray-300 text-sm leading-relaxed">Angabe, ob eine Datenschutzbeauftragte oder ein Datenschutzbeauftragter benannt ist (Art. 37 DSGVO)</li>
+                    <li class="text-gray-300 text-sm leading-relaxed">Konkrete Löschfristen für Kundenanfragen nach internen Vorgaben</li>
+                </ul>
+            </div>
+            <a href="index.html" class="inline-flex items-center gap-2 mt-12 px-6 py-3 bg-gold-500 text-navy-900 font-semibold rounded hover:bg-gold-400 transition-colors">
+                <i class="fa-solid fa-arrow-left"></i> Zurück zur Startseite
+            </a>
+        </div>
+    </main>
+
+<footer class="bg-[#050d1a] pt-16 pb-8 border-t border-navy-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-1">
+                    <a href="index.html#startseite" class="text-2xl font-serif font-bold text-white tracking-wider flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-truck-fast text-gold-500"></i>
+                        MK Umzug &amp; Transport
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Ihr Premium Umzugs- und Transportpartner in Rheinfelden und Umgebung. Vertrauen Sie den Profis.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">Schnellzugriff</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#startseite" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Startseite</a></li>
+                        <li><a href="index.html#ueber-uns" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Über uns</a></li>
+                        <li><a href="index.html#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Leistungen</a></li>
+                        <li><a href="index.html#ablauf" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Ablauf</a></li>
+                        <li><a href="index.html#kontakt" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">Leistungen</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Privatumzüge</a></li>
+                        <li><a href="index.html#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Firmenumzüge</a></li>
+                        <li><a href="index.html#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Möbelmontage</a></li>
+                        <li><a href="index.html#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Entrümpelung</a></li>
+                        <li><a href="index.html#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Gebäudereinigung</a></li>
+                        <li><a href="index.html#leistungen" class="text-gray-400 hover:text-gold-500 transition-colors text-sm">Hausmeisterservice</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">Kontakt</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400 text-sm">Augster Str. 28</li>
+                        <li class="text-gray-400 text-sm">79618 Rheinfelden</li>
+                        <li class="text-gray-400 text-sm">Tel: +49 174 659 93 77</li>
+                        <li class="text-gray-400 text-sm break-words">Mk.umzugtransport@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-navy-800 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 MK Umzug & Transport. Alle Rechte vorbehalten.
+                </p>
+                <ul class="flex items-center gap-6 mt-4 md:mt-0">
+                    <li><a href="impressum.html" class="text-gray-500 hover:text-gold-500 transition-colors text-sm">Impressum</a></li>
+                    <li><a href="datenschutz.html" class="text-gray-500 hover:text-gold-500 transition-colors text-sm">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const applyNav = () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-navy-900/95', 'backdrop-blur-md', 'shadow-lg', 'py-2');
+                navbar.classList.remove('bg-transparent', 'py-4');
+            } else {
+                navbar.classList.remove('bg-navy-900/95', 'backdrop-blur-md', 'shadow-lg', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+            }
+        };
+        window.addEventListener('scroll', applyNav);
+        applyNav();
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>
